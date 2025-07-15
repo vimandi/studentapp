@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Student List</title></head>
+<body>
+    <h1>Students</h1>
+    <a href="/add">Add New Student</a>
+    <table border="2">
+        <tr><th>ID</th><th>Name</th><th>Course</th></tr>
+        <tr th:each="s : ${students}">
+            <td th:text="${s.id}"></td>
+            <td th:text="${s.name}"></td>
+            <td th:text="${s.course}"></td>
+        </tr>
+    </table>
+</body>
+</html>
