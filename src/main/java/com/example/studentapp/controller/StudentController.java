@@ -24,6 +24,7 @@ public class StudentController {
         model.addAttribute("student", new Student());
         return "add";
     }
+    
 
     @PostMapping("/save")
     public String saveStudent(@ModelAttribute Student student) {
