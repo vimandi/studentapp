@@ -1,32 +1,37 @@
 pipeline {
     agent any
-tools {
+
+    tools {
         maven 'apache-maven-3.9.9'
         jdk 'JDK 17'
     }
+
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: git 'https://github.com/vimandi/studentapp.git'
+                git branch: 'main', url: 'https://github.com/vimandi/studentapp.git'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'mvn clean install'
+                bat 'mvn clean compile'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
 
-        stage('Deploy') {
+        stage('Package') {
             steps {
-                echo 'Deploy step (optional)'
+                bat 'mvn package'
             }
         }
+
+             
+        
     }
 }
