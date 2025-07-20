@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/vimandi/studentapp.git'
+                git branch: 'main', url: git 'https://github.com/vimandi/studentapp.git'
             }
         }
 
